@@ -24,6 +24,7 @@
   <Metadata>
     <MetadataFile FileName="item.disco" MetadataType="Disco" ID="0573ac60-00a7-4e60-a9d9-17418e20de07" SourceId="1" SourceUrl="http://localhost:8733/MathsOperations/?disco" />
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="415f0881-b70d-4f7e-9386-2ac182b7fdde" SourceId="1" SourceUrl="http://localhost:8733/MathsOperations/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="03eef76a-1bc5-4f0b-887a-0fc1991b368e" SourceId="1" SourceUrl="http://localhost:8733/MathsOperations/?xsd=xsd2" />
     <MetadataFile FileName="MathsOperations.wsdl" MetadataType="Wsdl" ID="a329cbd4-80fb-4a22-8292-2c4a4bc2243d" SourceId="1" SourceUrl="http://localhost:8733/MathsOperations/?wsdl" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="32bf67cb-7efa-47a7-9652-3c3e6290893a" SourceId="1" SourceUrl="http://localhost:8733/MathsOperations/?xsd=xsd1" />
   </Metadata>

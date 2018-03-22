@@ -22,7 +22,10 @@ namespace MathsLibrary
         public int Divide(int num1, int num2)
         {
             if (num2 == 0) {
-                throw new Exception("Exception occurred at service level: Divide by zero");
+                CustomFaultDetails ex = new CustomFaultDetails();
+                ex.ErrorID = "12345";
+                ex.ErrorDetails = "Divide by zero";
+                throw new FaultException<CustomFaultDetails>(ex, "Exception occurred at service level");
             }
             return num1 / num2;
         }

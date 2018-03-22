@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,11 +40,16 @@ namespace MathClient
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            label1.Text = clientDefault.Divide(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientDefault.Endpoint.Address + ")";
-            label2.Text = clientAnotherPort.Divide(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientAnotherPort.Endpoint.Address + ")";
-            label3.Text = clientAnotherAddress.Divide(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientAnotherAddress.Endpoint.Address + ")";
-            label4.Text = clientAnotherAddress.Divide(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientWsHttpBinding.Endpoint.Address + ")";
+            try { 
+                label1.Text = clientDefault.Divide(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientDefault.Endpoint.Address + ")";
+                label2.Text = clientAnotherPort.Divide(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientAnotherPort.Endpoint.Address + ")";
+                label3.Text = clientAnotherAddress.Divide(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientAnotherAddress.Endpoint.Address + ")";
+                label4.Text = clientAnotherAddress.Divide(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientWsHttpBinding.Endpoint.Address + ")";
+            }
+            catch (FaultException<CustomFaultDetails> ex)
+            {
+                Console.WriteLine("Message: {0}, Description: {1}", ex.Detail.ErrorID, ex.Detail.ErrorDetails);
+            }
         }
     }
 }

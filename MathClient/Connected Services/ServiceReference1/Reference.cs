@@ -9,7 +9,70 @@
 //------------------------------------------------------------------------------
 
 namespace MathClient.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomFaultDetails", Namespace="http://schemas.datacontract.org/2004/07/MathsLibrary")]
+    [System.SerializableAttribute()]
+    public partial class CustomFaultDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorDetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorDetails {
+            get {
+                return this.ErrorDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorDetailsField, value) != true)) {
+                    this.ErrorDetailsField = value;
+                    this.RaisePropertyChanged("ErrorDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorID {
+            get {
+                return this.ErrorIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorIDField, value) != true)) {
+                    this.ErrorIDField = value;
+                    this.RaisePropertyChanged("ErrorID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IMathsOperations")]
@@ -28,6 +91,7 @@ namespace MathClient.ServiceReference1 {
         System.Threading.Tasks.Task<int> MultiplyAsync(int num1, int num2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMathsOperations/Divide", ReplyAction="http://tempuri.org/IMathsOperations/DivideResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(MathClient.ServiceReference1.CustomFaultDetails), Action="http://tempuri.org/IMathsOperations/DivideCustomFaultDetailsFault", Name="CustomFaultDetails", Namespace="http://schemas.datacontract.org/2004/07/MathsLibrary")]
         int Divide(int num1, int num2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMathsOperations/Divide", ReplyAction="http://tempuri.org/IMathsOperations/DivideResponse")]
