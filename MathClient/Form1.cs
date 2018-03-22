@@ -16,6 +16,7 @@ namespace MathClient
         MathsOperationsClient clientDefault;
         MathsOperationsClient clientAnotherPort;
         MathsOperationsClient clientAnotherAddress;
+        MathsOperationsClient clientWsHttpBinding;
 
         public Form1()
         {
@@ -23,6 +24,8 @@ namespace MathClient
             clientDefault = new MathsOperationsClient("Default");
             clientAnotherPort = new MathsOperationsClient("AnotherPort");
             clientAnotherAddress = new MathsOperationsClient("AnotherAddress");
+            clientWsHttpBinding = new MathsOperationsClient("WsHttpBinding");
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,6 +33,7 @@ namespace MathClient
             label1.Text = clientDefault.Add(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientDefault.Endpoint.Address + ")";
             label2.Text = clientAnotherPort.Add(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientAnotherPort.Endpoint.Address + ")";
             label3.Text = clientAnotherAddress.Add(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientAnotherAddress.Endpoint.Address + ")";
+            label4.Text = clientAnotherAddress.Add(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text)).ToString() + " (from: " + clientWsHttpBinding.Endpoint.Address + ")";
 
         }
     }
