@@ -14,5 +14,8 @@ namespace MathsLibrary
 
         [OperationContract]
         int Multiply(int num1, int num2);
+
+        [OperationContract]
+        int Divide(int num1, int num2);
     }
 }

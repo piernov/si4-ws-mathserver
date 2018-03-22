@@ -26,6 +26,12 @@ namespace MathClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMathsOperations/Multiply", ReplyAction="http://tempuri.org/IMathsOperations/MultiplyResponse")]
         System.Threading.Tasks.Task<int> MultiplyAsync(int num1, int num2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMathsOperations/Divide", ReplyAction="http://tempuri.org/IMathsOperations/DivideResponse")]
+        int Divide(int num1, int num2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMathsOperations/Divide", ReplyAction="http://tempuri.org/IMathsOperations/DivideResponse")]
+        System.Threading.Tasks.Task<int> DivideAsync(int num1, int num2);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace MathClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> MultiplyAsync(int num1, int num2) {
             return base.Channel.MultiplyAsync(num1, num2);
+        }
+        
+        public int Divide(int num1, int num2) {
+            return base.Channel.Divide(num1, num2);
+        }
+        
+        public System.Threading.Tasks.Task<int> DivideAsync(int num1, int num2) {
+            return base.Channel.DivideAsync(num1, num2);
         }
     }
 }
